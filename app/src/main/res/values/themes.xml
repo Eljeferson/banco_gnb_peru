@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Tema principal — Banco GNB Perú -->
+    <style name="Theme.MiBanco" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Color primario: Verde GNB -->
+        <item name="colorPrimary">@color/gnb_green_primary</item>
+        <item name="colorPrimaryVariant">@color/gnb_green_dark</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <!-- Color secundario: Azul GNB -->
+        <item name="colorSecondary">@color/gnb_blue_primary</item>
+        <item name="colorSecondaryVariant">@color/gnb_blue_dark</item>
+        <item name="colorOnSecondary">@color/white</item>
+
+        <!-- Color terciario: Naranja GNB -->
+        <item name="colorTertiary">@color/gnb_orange</item>
+        <item name="colorOnTertiary">@color/white</item>
+
+        <!-- Fondos -->
+        <item name="android:colorBackground">@color/gnb_background</item>
+        <item name="colorSurface">@color/gnb_surface</item>
+        <item name="colorOnSurface">@color/gnb_text_primary</item>
+
+        <!-- Error -->
+        <item name="colorError">#FFB3261E</item>
+        <item name="colorOnError">@color/white</item>
+
+        <!-- Barras del sistema -->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowBackground">@color/gnb_background</item>
+    </style>
+
+    <!-- Tema Splash Screen -->
+    <style name="Theme.MiBanco.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/gnb_green_primary</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_foreground</item>
+        <item name="windowSplashScreenAnimationDuration">800</item>
+        <item name="postSplashScreenTheme">@style/Theme.MiBanco</item>
+    </style>
+
+</resources>

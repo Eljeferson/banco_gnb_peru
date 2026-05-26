@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- =============================================
+         Paleta de Colores — Banco GNB Perú
+         Fuente: https://www.bancognb.com.pe
+         ============================================= -->
+
+    <!-- Verde primario (botones, links activos, hover) -->
+    <color name="gnb_green_primary">#FF8EC63F</color>
+    <!-- Verde oscuro (headers de tablas, elementos destacados) -->
+    <color name="gnb_green_dark">#FF71A42A</color>
+    <!-- Verde claro (texto resaltado, acentos) -->
+    <color name="gnb_green_light">#FF82BB4A</color>
+    <!-- Verde lima suave -->
+    <color name="gnb_green_soft">#FF85C446</color>
+    <!-- Verde teal (seguros, footer especial) -->
+    <color name="gnb_teal">#FF187477</color>
+
+    <!-- Azul principal (texto, títulos) -->
+    <color name="gnb_blue_primary">#FF01609C</color>
+    <!-- Azul título slider -->
+    <color name="gnb_blue_dark">#FF045CA3</color>
+    <!-- Azul claro / info -->
+    <color name="gnb_blue_light">#FF1A9DD8</color>
+    <!-- Azul puntos / acento suave -->
+    <color name="gnb_blue_accent">#FF0072A6</color>
+    <!-- Fondo azul claro (tablas) -->
+    <color name="gnb_blue_surface">#FFDCE6F2</color>
+
+    <!-- Naranja acento (categorías menú, íconos naranja) -->
+    <color name="gnb_orange">#FFE46C19</color>
+    <!-- Naranja alternativo -->
+    <color name="gnb_orange_alt">#FFEF8432</color>
+
+    <!-- Textos -->
+    <color name="gnb_text_primary">#FF333333</color>
+    <color name="gnb_text_secondary">#FF666666</color>
+    <color name="gnb_text_muted">#FF615F5F</color>
+    <color name="gnb_text_gray">#FF58595B</color>
+
+    <!-- Fondos -->
+    <color name="gnb_background">#FFF5F5F5</color>
+    <color name="gnb_surface">#FFFFFFFF</color>
+    <color name="gnb_background_gray">#FFF2F2F2</color>
+
+    <!-- Colores de sistema (se mantienen por compatibilidad) -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+</resources>
