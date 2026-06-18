@@ -12,8 +12,8 @@ sealed class Screen(val route: String) {
     object Tarjeta   : Screen("tarjeta/{token}") {
         fun createRoute(token: String) = "tarjeta/$token"
     }
-    object Prestamo  : Screen("prestamo/{token}") {
-        fun createRoute(token: String) = "prestamo/$token"
+    object Prestamo  : Screen("prestamo/{token}/{email}") {
+        fun createRoute(token: String, email: String) = "prestamo/$token/$email"
     }
     object Opera     : Screen("opera/{token}") {
         fun createRoute(token: String) = "opera/$token"

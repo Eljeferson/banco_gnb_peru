@@ -38,10 +38,10 @@ private val DarkColorScheme = darkColorScheme(
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary          = VerdeOscuro,            // Verde más oscuro para mejor contraste en fondo claro
+    primary          = VerdeBotonForest,       // Verde foresta sólido para botones y acentos
     onPrimary        = Color.White,
-    primaryContainer = Color(0xFFE2F3D1),
-    onPrimaryContainer = VerdeOscuro,
+    primaryContainer = VerdeSage,
+    onPrimaryContainer = VerdeBosqueOscuro,
 
     secondary        = AzulGNB,
     onSecondary      = Color.White,
@@ -49,32 +49,32 @@ private val LightColorScheme = lightColorScheme(
     tertiary         = NaranjaGNB,
     onTertiary       = Color.White,
 
-    background       = GrisFondo,
-    onBackground     = GrisTexto,
+    background       = FondoCrema,
+    onBackground     = VerdeBosqueOscuro,
 
     surface          = BlancoPuro,
-    onSurface        = GrisTexto,
-    surfaceVariant   = GrisFondoClaro,
-    onSurfaceVariant = GrisTextoSec,
+    onSurface        = VerdeBosqueOscuro,
+    surfaceVariant   = VerdeSage,
+    onSurfaceVariant = GrisSage,
 
-    outline          = Color(0xFFD1D1D1),
+    outline          = BordeSuave,
     error            = RojoError,
     onError          = Color.White
 )
 
 @Composable
 fun Appbanco_s8Theme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
+    darkTheme: Boolean = false, // Siempre usar tema claro para la estética premium orgánica
     content: @Composable () -> Unit
 ) {
-    val colorScheme = if (darkTheme) DarkColorScheme else LightColorScheme
+    val colorScheme = LightColorScheme
 
     val view = LocalView.current
     if (!view.isInEditMode) {
         SideEffect {
             val window = (view.context as Activity).window
-            window.statusBarColor = if (darkTheme) Color(0xFF0B121F).toArgb() else VerdeOscuro.toArgb()
-            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = false
+            window.statusBarColor = FondoCrema.toArgb()
+            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = true
         }
     }
 

@@ -120,9 +120,13 @@ fun AppNavGraph(navController: NavHostController) {
         // ── Prestamo ─────────────────────────────────────────
         composable(
             route     = Screen.Prestamo.route,
-            arguments = listOf(navArgument("token") { type = NavType.StringType })
+            arguments = listOf(
+                navArgument("token") { type = NavType.StringType },
+                navArgument("email") { type = NavType.StringType }
+            )
         ) { back ->
             val token = back.arguments?.getString("token") ?: tokenGlobal
+            val email = back.arguments?.getString("email") ?: emailGlobal
             AppScaffold(
                 token         = tokenGlobal,
                 email         = emailGlobal,
@@ -130,7 +134,7 @@ fun AppNavGraph(navController: NavHostController) {
                 onLogout      = doLogout
             ) { padding ->
                 Box(Modifier.fillMaxSize().padding(padding)) {
-                    PrestamoScreen(token = token, navController = navController)
+                    PrestamoScreen(token = token, email = email, navController = navController)
                 }
             }
         }

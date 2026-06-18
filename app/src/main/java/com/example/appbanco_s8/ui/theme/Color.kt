@@ -24,6 +24,15 @@ val GrisTexto      = Color(0xFF333333)   // Texto principal (#333333)
 val GrisTextoSec   = Color(0xFF666666)   // Texto secundario (#666666)
 val BlancoPuro     = Color(0xFFFFFFFF)
 
+// Nuevos tokens premium de diseño orgánico/moderno
+val FondoCrema         = Color(0xFFF7FAF4)   // Fondo off-white cálido
+val BordeSuave         = Color(0xFFE4ECE2)   // Borde sage ultrafino y limpio
+val VerdeSage          = Color(0xFFEAF1E7)   // Fondo sage/mint claro de contenedores
+val VerdeSageOscuro    = Color(0xFF4C6A40)   // Verde foresta/hoja para textos secundarios
+val VerdeBosqueOscuro  = Color(0xFF1E3514)   // Verde bosque oscuro (alto contraste) para títulos
+val VerdeBotonForest   = Color(0xFF385A27)   // Verde sólido para botones principales
+val GrisSage           = Color(0xFF5A7255)   // Gris sage para descripciones secundarias
+
 // Estados
 val VerdeExito     = Color(0xFF71A42A)
 val RojoError      = Color(0xFFE74C3C)

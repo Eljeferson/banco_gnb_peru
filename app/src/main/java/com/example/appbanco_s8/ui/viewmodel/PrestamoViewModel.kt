@@ -24,4 +24,23 @@ class PrestamoViewModel : ViewModel() {
             else DataUiState.Error(result.exceptionOrNull()?.message ?: "Error")
         }
     }
+
+    private val _solicitudStatus = MutableStateFlow<DataUiState<Boolean>?>(null)
+    val solicitudStatus: StateFlow<DataUiState<Boolean>?> = _solicitudStatus
+
+    fun enviarSolicitud(token: String, request: com.example.appbanco_s8.data.model.SolicitudCreditoRequest) {
+        viewModelScope.launch {
+            _solicitudStatus.value = DataUiState.Loading
+            val result = repository.createSolicitud(token, request)
+            if (result.isSuccess) {
+                _solicitudStatus.value = DataUiState.Success(true)
+            } else {
+                _solicitudStatus.value = DataUiState.Error(result.exceptionOrNull()?.message ?: "Error")
+            }
+        }
+    }
+
+    fun clearSolicitudStatus() {
+        _solicitudStatus.value = null
+    }
 }

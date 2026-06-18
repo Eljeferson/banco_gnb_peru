@@ -3,11 +3,14 @@ package com.example.appbanco_s8.ui.screens
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.slideInVertically
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.ui.res.painterResource
+import com.example.appbanco_s8.R
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Lock
@@ -60,7 +63,7 @@ fun LoginScreen(
             .fillMaxSize()
             .background(
                 Brush.verticalGradient(
-                    colors = listOf(AzulOscuroGNB, AzulGNB, VerdeOscuro)
+                    colors = listOf(FondoCrema, VerdeSage, FondoCrema)
                 )
             )
     ) {
@@ -72,55 +75,60 @@ fun LoginScreen(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
 
-            // ── Logo GNB (Recreación visual según imagen) ──
+            // ── Logo GNB (Recreación visual premium orgánica de alto contraste) ──
             AnimatedVisibility(
                 visible = true,
                 enter   = fadeIn() + slideInVertically(initialOffsetY = { -40 })
             ) {
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
                     
-                    // Cuadro blanco con el "árbol" (representado por icono o texto)
                     Surface(
-                        modifier = Modifier.size(120.dp),
+                        modifier = Modifier.size(100.dp),
                         color = Color.White,
-                        shape = RoundedCornerShape(4.dp)
+                        border = androidx.compose.foundation.BorderStroke(1.dp, BordeSuave),
+                        shape = RoundedCornerShape(28.dp),
+                        shadowElevation = 3.dp
                     ) {
-                        Box(contentAlignment = Alignment.Center) {
-                            // Representación simbólica del árbol en verde
-                            Text(
-                                text = "🌳",
-                                fontSize = 60.sp
+                        Box(
+                            contentAlignment = Alignment.Center,
+                            modifier = Modifier.padding(12.dp)
+                        ) {
+                            Image(
+                                painter = painterResource(id = R.drawable.gnb_logo),
+                                contentDescription = "GNB Logo",
+                                modifier = Modifier.fillMaxSize()
                             )
                         }
                     }
 
-                    Spacer(Modifier.height(8.dp))
+                    Spacer(Modifier.height(16.dp))
 
                     Text(
                         text = "BANCO",
-                        fontSize = 32.sp,
+                        fontSize = 24.sp,
                         fontWeight = FontWeight.Light,
-                        color = Color.White,
-                        letterSpacing = 4.sp
+                        color = VerdeBosqueOscuro,
+                        letterSpacing = 6.sp
                     )
                     Text(
                         text = "GNB",
-                        fontSize = 54.sp,
-                        fontWeight = FontWeight.Bold,
-                        color = AzulGNB,
-                        modifier = Modifier.offset(y = (-10).dp)
+                        fontSize = 44.sp,
+                        fontWeight = FontWeight.ExtraBold,
+                        color = VerdeBotonForest,
+                        modifier = Modifier.offset(y = (-6).dp)
                     )
                 }
             }
 
-            Spacer(Modifier.height(40.dp))
+            Spacer(Modifier.height(32.dp))
 
             // ── Card de login ───────────────────────────────
             Surface(
-                shape          = RoundedCornerShape(24.dp),
-                color          = Color.White.copy(alpha = 0.95f),
+                shape          = RoundedCornerShape(32.dp),
+                color          = Color.White,
+                border         = androidx.compose.foundation.BorderStroke(1.dp, BordeSuave),
                 modifier       = Modifier.fillMaxWidth(),
-                shadowElevation = 8.dp
+                shadowElevation = 4.dp
             ) {
                 Column(
                     modifier            = Modifier.padding(24.dp),
@@ -129,9 +137,9 @@ fun LoginScreen(
 
                     Text(
                         text       = "Ingreso Clientes",
-                        fontSize   = 20.sp,
+                        fontSize   = 18.sp,
                         fontWeight = FontWeight.Bold,
-                        color      = AzulGNB,
+                        color      = VerdeBosqueOscuro,
                         textAlign  = TextAlign.Center,
                         modifier   = Modifier.fillMaxWidth()
                     )
@@ -141,7 +149,7 @@ fun LoginScreen(
                         onValueChange = { email = it },
                         label         = { Text("Usuario / Email") },
                         leadingIcon   = {
-                            Icon(Icons.Default.Email, null, tint = VerdeOscuro)
+                            Icon(Icons.Default.Email, null, tint = VerdeBotonForest)
                         },
                         singleLine      = true,
                         keyboardOptions = KeyboardOptions(
@@ -152,17 +160,19 @@ fun LoginScreen(
                             onNext = { focusManager.moveFocus(FocusDirection.Down) }
                         ),
                         modifier = Modifier.fillMaxWidth(),
-                        shape    = RoundedCornerShape(12.dp),
+                        shape    = RoundedCornerShape(50.dp),
                         colors   = OutlinedTextFieldDefaults.colors(
-                            focusedTextColor     = Color(0xFF1A1A1A),
-                            unfocusedTextColor   = Color(0xFF1A1A1A),
-                            focusedLabelColor    = VerdeOscuro,
-                            unfocusedLabelColor  = Color(0xFF757575),
-                            focusedBorderColor   = VerdeOscuro,
-                            unfocusedBorderColor = Color(0xFFB0B0B0),
-                            cursorColor          = VerdeOscuro,
-                            focusedLeadingIconColor   = VerdeOscuro,
-                            unfocusedLeadingIconColor = Color(0xFF757575)
+                            focusedContainerColor = Color.White,
+                            unfocusedContainerColor = FondoCrema,
+                            focusedTextColor     = VerdeBosqueOscuro,
+                            unfocusedTextColor   = VerdeBosqueOscuro,
+                            focusedLabelColor    = VerdeBotonForest,
+                            unfocusedLabelColor  = GrisSage,
+                            focusedBorderColor   = VerdeBotonForest,
+                            unfocusedBorderColor = BordeSuave,
+                            cursorColor          = VerdeBotonForest,
+                            focusedLeadingIconColor   = VerdeBotonForest,
+                            unfocusedLeadingIconColor = GrisSage
                         )
                     )
 
@@ -171,7 +181,7 @@ fun LoginScreen(
                         onValueChange = { password = it },
                         label         = { Text("Contraseña") },
                         leadingIcon   = {
-                            Icon(Icons.Default.Lock, null, tint = VerdeOscuro)
+                            Icon(Icons.Default.Lock, null, tint = VerdeBotonForest)
                         },
                         trailingIcon = {
                             IconButton(onClick = { passwordVisible = !passwordVisible }) {
@@ -181,7 +191,7 @@ fun LoginScreen(
                                     else
                                         Icons.Default.Visibility,
                                     contentDescription = null,
-                                    tint = Color(0xFF757575)
+                                    tint = GrisSage
                                 )
                             }
                         },
@@ -201,17 +211,19 @@ fun LoginScreen(
                             }
                         ),
                         modifier = Modifier.fillMaxWidth(),
-                        shape    = RoundedCornerShape(12.dp),
+                        shape    = RoundedCornerShape(50.dp),
                         colors   = OutlinedTextFieldDefaults.colors(
-                            focusedTextColor     = Color(0xFF1A1A1A),
-                            unfocusedTextColor   = Color(0xFF1A1A1A),
-                            focusedLabelColor    = VerdeOscuro,
-                            unfocusedLabelColor  = Color(0xFF757575),
-                            focusedBorderColor   = VerdeOscuro,
-                            unfocusedBorderColor = Color(0xFFB0B0B0),
-                            cursorColor          = VerdeOscuro,
-                            focusedLeadingIconColor   = VerdeOscuro,
-                            unfocusedLeadingIconColor = Color(0xFF757575)
+                            focusedContainerColor = Color.White,
+                            unfocusedContainerColor = FondoCrema,
+                            focusedTextColor     = VerdeBosqueOscuro,
+                            unfocusedTextColor   = VerdeBosqueOscuro,
+                            focusedLabelColor    = VerdeBotonForest,
+                            unfocusedLabelColor  = GrisSage,
+                            focusedBorderColor   = VerdeBotonForest,
+                            unfocusedBorderColor = BordeSuave,
+                            cursorColor          = VerdeBotonForest,
+                            focusedLeadingIconColor   = VerdeBotonForest,
+                            unfocusedLeadingIconColor = GrisSage
                         )
                     )
 
@@ -233,19 +245,19 @@ fun LoginScreen(
                         enabled  = uiState !is AuthUiState.Loading,
                         modifier = Modifier
                             .fillMaxWidth()
-                            .height(52.dp),
-                        shape  = RoundedCornerShape(14.dp),
+                            .height(50.dp),
+                        shape  = RoundedCornerShape(50.dp),
                         colors = ButtonDefaults.buttonColors(
-                            containerColor = AzulGNB,
+                            containerColor = VerdeBotonForest,
                             contentColor   = Color.White,
-                            disabledContainerColor = AzulGNB.copy(alpha = 0.5f),
+                            disabledContainerColor = VerdeBotonForest.copy(alpha = 0.5f),
                             disabledContentColor   = Color.White.copy(alpha = 0.7f)
                         )
                     ) {
                         if (uiState is AuthUiState.Loading) {
                             CircularProgressIndicator(color = Color.White, modifier = Modifier.size(24.dp))
                         } else {
-                            Text("INGRESAR", fontWeight = FontWeight.Bold, color = Color.White)
+                            Text("INGRESAR", fontWeight = FontWeight.Bold, color = Color.White, letterSpacing = 1.sp)
                         }
                     }
 
@@ -253,7 +265,7 @@ fun LoginScreen(
                         onClick  = { },
                         modifier = Modifier.fillMaxWidth()
                     ) {
-                        Text("¿Olvidó su contraseña?", color = AzulOscuroGNB, fontWeight = FontWeight.Medium)
+                        Text("¿Olvidó su contraseña?", color = VerdeBosqueOscuro, fontWeight = FontWeight.SemiBold, fontSize = 13.sp)
                     }
                 }
             }
@@ -263,8 +275,8 @@ fun LoginScreen(
             Text(
                 text          = "Banco GNB Perú S.A.",
                 fontSize      = 12.sp,
-                color         = Color.White,
-                fontWeight    = FontWeight.Medium
+                color         = GrisSage,
+                fontWeight    = FontWeight.Bold
             )
         }
     }

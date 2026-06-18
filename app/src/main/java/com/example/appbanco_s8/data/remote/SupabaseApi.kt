@@ -50,4 +50,11 @@ interface SupabaseApi {
         @Query("order")          order:  String = "fecha.desc",
         @Query("limit")          limit:  Int    = 20
     ): Response<List<Pago>>
+
+    @retrofit2.http.POST("rest/v1/solicitudes_credito")
+    suspend fun createSolicitudCredito(
+        @Header("Authorization") token: String,
+        @Header("Prefer") prefer: String = "return=representation",
+        @retrofit2.http.Body request: SolicitudCreditoRequest
+    ): Response<List<SolicitudCreditoRequest>>
 }
